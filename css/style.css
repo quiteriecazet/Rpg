@@ -1,0 +1,65 @@
+tr td {
+	width: 32px;
+	height: 32px;
+	border: solid 3px black;
+	background-color: white;
+}
+
+.img {
+	width: 20%;
+}
+
+table {
+	width: 110% !important;
+	height: 585px !important;
+}
+
+
+tr td[type="blocked"] {
+	background-color: black;
+}
+
+.assassin {
+	background-image: url(../img/assassin1.png);
+	background-size: 100%;
+}
+
+.ghoul {
+	background-image: url(../img/assassin2.png);
+	background-size: 100%;
+}
+
+
+tr td[weapon="1"] {
+	background-image: url(../img/axe.png);
+	background-size: 103%;
+}
+
+tr td[weapon="2"] {
+	background-image: url(../img/dagger.png);
+	background-size: 103%;
+}
+
+tr td[weapon="3"] {
+	background-image: url(../img/nunchaku.png);
+	background-size: 103%;
+}
+
+tr td[weapon="4"] {
+	background-image: url(../img/tomahawk.png);
+	background-size: 103%;
+}
+
+tr td[player="1"] {
+	background-image: url(../img/assassin1.png);
+	background-size: 103%;
+}
+
+tr td[player="2"] {
+	background-image: url(../img/assassin2.png);
+	background-size: 103%;
+}
+
+.container {
+	width: 90% !important;
+}

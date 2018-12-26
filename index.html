@@ -5,103 +5,161 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <title>Mini-RPG</title>
 </head>
 
-<body onload="initialize();">
-  <div class="container">
-    <div class="row">
-      <div class="col s5">
-        <div class="row">
-          <div class="col s8">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/assassin1.png">
-              </div>
-              <div class="card-content">
-                <p>Hooded Assassin</p>
-              </div>
-              <div class="card-action">
-                  <div class="switch">
-                      <label>
-                        Défense
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Attaque
-                      </label>
-                    </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s4">
-            <a class="waves-effect waves-light btn" onclick="launchGame();">Go</a>
-          </div>
-        </div>
+<body>
+  <div class="container-fluid">
 
-        <div class="row">
-          <div class="col s8">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/assassin2.png">
-              </div>
-              <div class="card-content">
-                <p>Suspicious Ghoul</p>
-              </div>
-              <div class="card-action">
-                  <div class="switch">
-                      <label>
-                        Défense
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Attaque
-                      </label>
-                    </div>
-              </div>
-            </div>
-          </div>
+    <div id="preview">
+      <div class="row">
+        <div class="col offset-s1">
+          <h2>Enter your names before the game begins</h2>
         </div>
-
       </div>
+      <div class=row>
+        <div class="col offset-s1 col s3">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/assassin1.png">
+            </div>
+            <div class="card-content">
+              <p>Hooded Assassin</p>
+              <input type="text" id="firstName">
+            </div>
+          </div>
+        </div>
 
+        <div class="col offset-s1 s1">
+          <a class="btn-floating btn-large waves-effect waves-light" id="start">Go</a>
+        </div>
 
-      <div class="col s7">
-        <table id="grid"></table>
+        <div class="col offset-s1 s3">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/assassin2.png">
+            </div>
+            <div class="card-content">
+              <p>Suspicious Ghoul</p>
+              <input type="text" id="secondName">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!--
-<div class="row">
-    <div class="col s8 m4 l4">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img class="img" src="img/assassin1.png">
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-                    <span class="card-title">Hooded Assassin</span>
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
+
+    <div class="row game" id="game">
+      <div class="col s6">
+        <table id="grid"></table>
+        <div id="gameBoard">
+          <div class="row">
+            <div class="card card_0 horizontal offset-s2 col s8">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/assassin1.png">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <div class="player1-name"></div>
+                  <div class="player1-hp"></div>
+                  <div class="player1-weapon"></div>
+                  <div class="player1-damage"></div>
+                  <div class="row">
+                    <div class="col s6">
+                      <a class="btn-floating btn-large waves-effect waves-light red attack 0" onClick="chooseStrategy('attack', 0)">
+                        <i class="material-icons">flare</i>
+                      </a>
+                    </div>
+                    <div class="col s6">
+                      <a class="btn-floating btn-large waves-effect waves-light defend 0" onClick="chooseStrategy('defense', 0)">
+                        <i class="material-icons">location_disabled</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card offset-s3 col s6 points">
+              <img class="hidden hidden0" src="img/assassin1.png">
+              <img class="hidden hidden1" src="img/assassin2.png">
+              <div class="damage"></div>
+            </div>
+
+            <div class="card card_1 horizontal offset-s2 col s8">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/assassin2.png">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <div class="player2-name"></div>
+                  <div class="player2-hp"></div>
+                  <div class="player2-weapon"></div>
+                  <div class="player2-damage"></div>
+                  <div class="row">
+                    <div class="col s6">
+                      <a class="btn-floating btn-large waves-effect waves-light red attack 1" onClick="chooseStrategy('attack', 1)">
+                        <i class="material-icons">flare</i>
+                      </a>
+                    </div>
+                    <div class="col s6">
+                      <a class="btn-floating btn-large waves-effect waves-light defend 1" onClick="chooseStrategy('defense', 1)">
+                        <i class="material-icons">location_disabled</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col s8 m4 l4">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img class="img" src="img/assassin2.png">
+
+      <div class="offset-s1 col s5">
+        <div id="feed">
+        </div>
+        <div class="col offset-s5 s1 restart">
+          <a class="btn-floating btn-large waves-effect waves-light" onClick="initialize()">Restart</a>
+        </div>
+
+      </div>
+
+      <div id="results">
+        <div class="row">
+          <div class="col offset-s1">
+            <h2>Well, it was a fair fight...</h2>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-                    <span class="card-title">Suspicious Ghoul</span>
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class=row>
+          <div class="col offset-s1 col s4">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/winner.png">
+              </div>
+              <div class="card-content">
+                <p id="winner"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col offset-s1 s4">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/dead.png">
+              </div>
+              <div class="card-content">
+                <p id="loser"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>*-->
+    </div>
   </div>
 
 </body>
-<script type="text/javascript" src="js/board.js"></script>
-<script type="text/javascript" src="js/players.js"></script>
+<script type="text/javascript" src="src/js/board.js"></script>
+<script type="text/javascript" src="src/js/players.js"></script>
+<script type="text/javascript" src="src/js/game.js"></script>
 
 </html>

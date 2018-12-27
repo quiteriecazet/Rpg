@@ -222,6 +222,6 @@ weapons = {
   },
   5: {
     name: "hands",
-    damage: 5,
+    damage: 10,
   }
 };

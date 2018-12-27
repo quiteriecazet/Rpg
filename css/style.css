@@ -104,12 +104,13 @@ tr td[changePosition="true"] {
 }
 
 .points {
-	height: 200px;
+	height: 170px;
 	background-color: black !important;
 }
 
-.horizontal {
+.card_0, .card_1 {
 	padding: 0px !important;
+	height: 238px !important;
 }
 
 #preview, #game, #results {

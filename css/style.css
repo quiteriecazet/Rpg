@@ -134,3 +134,8 @@ tr td[changePosition="true"] {
 	z-index: 1000;
 	color: white;
 }
+
+.restart > .btn-floating.btn-large {
+	font-size: 11px;
+	font-style: bold;
+}

@@ -87,9 +87,9 @@ launchGame = (firstPlayerName, secondPlayerName) => {
   $('td[player=1]').attr('currentPlayer', false);
   var random = Math.floor((Math.random() * 2));
   $('td[player=' + random + ']').attr('currentPlayer', true);
-  isCurrentlyPlaying(currentPlayer);
   firstPlayerName && (this.players[0].name = firstPlayerName);
   secondPlayerName && (this.players[1].name = secondPlayerName);
+  isCurrentlyPlaying(currentPlayer);
 };
 
 getRandomNumber = () => {

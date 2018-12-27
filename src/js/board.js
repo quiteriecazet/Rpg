@@ -28,7 +28,8 @@ initialize = () => {
   document.getElementById("start").addEventListener("click", function () {
     if (document.getElementById("firstName").value.length > 0) {
       var firstPlayerName = document.getElementById("firstName").value;
-    } else if (document.getElementById("secondName").value.length > 0) {
+    } 
+    if (document.getElementById("secondName").value.length > 0) {
       var secondPlayerName = document.getElementById("secondName").value;
     };
     launchGame(firstPlayerName, secondPlayerName);
